@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historial de Datos – CUT</title>
+
+  <!-- Google Fonts: Inter -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome (íconos sidebar) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
+  <!-- CSS global y específico -->
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/historial.css" />
+</head>
+
+<body>
+  <canvas id="mesh-bg"></canvas>
+  <!-- =========== Sidebar =========== -->
+  <div class="sidebar">
+    <h2 class="sidebar-logo">
+      <i class="fas fa-university"></i>
+      <span>CUT</span>
+    </h2>
+    <ul>
+      <li>
+        <a href="#cuenta">
+          <i class="fas fa-user"></i>
+          <span>Mi Cuenta</span>
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="historial.html">
+          <i class="fas fa-calendar"></i>
+          <span>Historial de Datos</span>
+        </a>
+      </li>
+      <li>
+        <a href="#acerca">
+          <i class="fas fa-info-circle"></i>
+          <span>Acerca de</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- =========== Contenido Principal =========== -->
+  <div class="main-content">
+    <!-- Header -->
+   <header>
+  <h1>Dashboard de Movilidad Inteligente</h1>
+  <p>Centro Universitario de Tonalá – CUT</p>
+  <div class="user-info">
+    <a href="login.html" class="login-button">Ingresar</a>
+  </div>
+</header>
+
+
+    <!-- =========== Cuerpo (dos columnas) =========== -->
+    <div class="content-body">
+      <!-- Panel de selector y datos -->
+      <div class="historial-container historial-panel">
+        <div class="fecha-wrapper">
+          <label for="datePicker">Elige una fecha</label>
+          <div class="input-icon">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="date" id="datePicker" />
+          </div>
+        </div>
+        <div class="datos-grid">
+          <div class="dato">
+            <span class="label">Personas</span>
+            <span class="value" id="personasVal">—</span>
+          </div>
+          <div class="dato">
+            <span class="label">Camiones</span>
+            <span class="value" id="camionesVal">—</span>
+          </div>
+          <div class="dato">
+            <span class="label">Hora pico</span>
+            <span class="value" id="horaVal">—</span>
+          </div>
+          <div class="dato">
+            <span class="label">Entrada más usada</span>
+            <span class="value" id="entradaVal">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de las 5 gráficas -->
+      <div class="dashboard-grid">
+        <section class="card dist">
+          <h2>Distribución por Entrada</h2>
+          <canvas id="pieChart"></canvas>
+        </section>
+        <section class="card cam">
+          <h2>Camiones por Hora</h2>
+          <canvas id="camionesChart"></canvas>
+        </section>
+        <section class="card personas">
+          <h2>Personas por Entrada</h2>
+          <canvas id="personasEntradaChart"></canvas>
+        </section>
+        <section class="card flow">
+          <h2>Flujo por Hora</h2>
+          <canvas id="lineChart"></canvas>
+        </section>
+        <section class="card week">
+          <h2>Tráfico semanal acumulado</h2>
+          <canvas id="weekChart"></canvas>
+        </section>
+      </div>
+    </div>
+    <!-- =========== /content-body =========== -->
+
+    <footer>
+      <p>Desarrollado por el equipo CUT – 2025</p>
+    </footer>
+  </div>
+  <!-- =========== /main-content =========== -->
+
+  <!-- Chart.js y tu script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/historial.js"></script>
+</body>
+</html>

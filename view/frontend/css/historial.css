@@ -1,0 +1,120 @@
+/* quitamos el margin-top de .historial-container para que no suba por encima */
+.historial-container {
+  flex: 0 0 320px;
+  margin: 0;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* 1. Ahora el wrapper .content-body es el flex container */
+.content-body {
+  display: flex;
+  align-items: stretch;   /* estira ambas columnas al mismo alto */
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+/* 2. La grid sigue igual, pero sin margin-top */
+.dashboard-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* 3. Asegúrate de que las tarjetas tengan altura explícita */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+
+/* Convierte cada tarjeta en un flex-container vertical */
+.dashboard-grid .card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Deja el título arriba y permite que el canvas crezca abajo */
+.dashboard-grid .card h2 {
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+.dashboard-grid .card canvas {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+}
+
+/* Tus min-heights actuales mantienen el tamaño base */
+.card.dist, .card.cam, .card.personas { min-height: 260px; }
+.card.flow, .card.week               { min-height: 190px; }
+
+/* Panel mejorado */
+.historial-panel {
+  background: hsla(0, 0%, 100%, 0.8);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 360px;
+  display: grid;
+  row-gap: 1.5rem;
+}
+
+/* Fecha */
+.fecha-wrapper label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.input-icon {
+  position: relative;
+}
+.input-icon i {
+  position: absolute;
+  left: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+.input-icon input[type="date"] {
+  width: 80%;
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  font-size: 0.9rem;
+}
+
+/* Datos */
+.datos-grid {
+  display: grid;
+  row-gap: 0.75rem;
+}
+.dato {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: #f4f6f8;
+  border-radius: 8px;
+}
+.dato .label {
+  font-weight: 500;
+  color: #555;
+}
+.dato .value {
+  font-weight: 600;
+  color: #222;
+}
+#mesh-bg {
+  position: fixed;
+  inset: 0;               /* equivale a top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  z-index: -999;          /* detrás de todo */
+  pointer-events: none;   /* el mouse “atraviesa” el canvas */
+}

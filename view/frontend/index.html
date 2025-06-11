@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard de Movilidad Inteligente - CUT</title>
+
+  <!-- Google Fonts: Inter (estilo macOS/iOS) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
+ 
+  <link rel="stylesheet" href="css/index.css" />
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="mesh-bg"></canvas>
+  <!-- =========== Sidebar =========== -->
+<div class="sidebar">
+  <h2 class="sidebar-logo">
+    <i class="fas fa-university"></i>
+    <span>CUT</span>
+  </h2>
+  <ul>
+    <li>
+      <a href="#cuenta">
+        <i class="fas fa-user"></i>
+        <span>Mi Cuenta</span>
+      </a>
+    </li>
+
+    <li class="active">
+      <a href="index.html">
+
+
+        <i class="fas fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="historial.html">
+        <i class="fas fa-calendar"></i>
+        <span>Historial de Datos</span>
+      </a>
+    </li>
+    <li>
+      <a href="#acerca">
+        <i class="fas fa-info-circle"></i>
+        <span>Acerca de</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  <!-- =========== Contenido Principal =========== -->
+  <div class="main-content">
+    <!-- Header -->
+   <header>
+  <h1>Dashboard de Movilidad Inteligente</h1>
+  <p>Centro Universitario de Tonalá – CUT</p>
+  <div class="user-info">
+    <a href="login.html" class="login-button">Ingresar</a>
+  </div>
+</header>
+
+
+    <!-- KPIs -->
+    <div class="kpi-container">
+      <div class="kpi-card">
+        <i class="fas fa-users"></i>
+        <div>
+          <div class="kpi-label">Personas detectadas hoy</div>
+          <strong>256</strong>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <i class="fas fa-bus"></i>
+        <div>
+          <div class="kpi-label">Camiones registrados</div>
+          <strong>12</strong>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <i class="fas fa-clock"></i>
+        <div>
+          <div class="kpi-label">Hora pico</div>
+          <strong>7:30 AM</strong>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <i class="fas fa-door-open"></i>
+        <div>
+          <div class="kpi-label">Entrada más usada</div>
+          <strong>Entrada 1</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Grid de gráficas estilo "collage" ===== -->
+    <div class="dashboard-grid">
+  <section class="card dist">
+    <h2>Distribución por Entrada</h2>
+    <canvas id="pieChart"></canvas>
+  </section>
+
+  <section class="card cam">
+    <h2>Camiones por Hora</h2>
+    <canvas id="camionesChart"></canvas>
+  </section>
+
+  <section class="card personas">
+    <h2>Personas por Entrada</h2>
+    <canvas id="personasEntradaChart"></canvas>
+  </section>
+
+  <section class="card flow">
+    <h2>Flujo por Hora</h2>
+    <canvas id="lineChart"></canvas>
+  </section>
+
+  <section class="card week">
+    <h2>Tráfico semanal acumulado</h2>
+    <canvas id="weekChart"></canvas>
+  </section>
+
+  <section class="card map">
+  <h2>Mapa de Ubicación de Cámaras</h2>
+  <div id="map"></canvas>
+</section>
+
+
+
+
+</div>
+
+
+ <!-- Sección con Video + Explicación de IA -->
+<div class="grid-two-cols">
+  <!-- Video -->
+  <section class="card video-card">
+    <h2>Demostración del Sistema</h2>
+    <video width="100%" height="auto" autoplay muted playsinline controls poster="images/video-preview.png">
+  <source src="images/videoexample.mp4" type="video/mp4" />
+ 
+</video>
+
+      <source src="images/videoexample.mp4" type="video/mp4" />
+      
+    </video>
+    <p class="video-note">*Video demostrativo próximamente*</p>
+  </section>
+
+  <!-- Explicación IA -->
+<section class="card ia-explain-card">
+  <h2>Propósito del Proyecto</h2>
+
+  <p class="ia-desc">
+    La idea planteada es implementar un <strong>sistema de inteligencia artificial</strong> basado en reconocimiento de objetos y visión computacional para <strong>monitorear en tiempo real</strong> los flujos de transporte público que utilizan los alumnos para ingresar a la institución.
+  </p>
+
+  <p class="ia-desc">
+    El objetivo es generar <strong>indicadores estratégicos</strong> que ayuden a mejorar la planificación de horarios, optimizar los accesos y apoyar decisiones en movilidad corporativa y sostenibilidad.
+  </p>
+
+  <p class="ia-desc">
+    La detección se realiza en las <strong>dos principales entradas del CUT</strong>: una ubicada en la zona de <strong>camiones</strong> y otra en el <strong>pasillo hacia el Instituto de Investigación</strong>.
+  </p>
+
+  <!-- Imagen del logo al final -->
+  <img src="images/cutlogo.png" alt="Logo CUT" class="ia-logo" />
+</section>
+
+   
+  </section>
+</div>
+
+
+
+    <!-- Notas del Sistema -->
+    <section class="card notes-card">
+      <h2>Notas del Sistema</h2>
+      <ul>
+        
+        <li>Se requiere permiso para entrenar IA con imágenes reales.</li>
+        
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Desarrollado por el equipo CUT – 2025</p>
+    </footer>
+  </div>
+
+  <!-- Tu JavaScript en main.js -->
+  <script src="js/main.js"></script>
+</body>
+</html>

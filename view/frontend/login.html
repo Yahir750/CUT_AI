@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Movilidad Inteligente</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <!-- Canvas de fondo animado -->
+  <canvas id="mesh-bg"></canvas>
+
+  <div class="container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuario" required />
+      <input type="password" id="password" placeholder="Contraseña" required />
+      <button type="submit">Ingresar</button>
+      <p id="loginMessage"></p>
+    </form>
+
+             <h3>     ¿No tienes cuenta? Regístrate    </h3> 
+    <form id="registerForm">
+      <input type="text" id="newUsername" placeholder="Nuevo Usuario" required />
+      <input type="password" id="newPassword" placeholder="Nueva Contraseña" required />
+      <button type="submit">Registrar</button>
+      <p id="registerMessage"></p>
+    </form>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
