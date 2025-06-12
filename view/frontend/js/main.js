@@ -1,82 +1,12 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const canvas = document.getElementById('mesh-bg');
-  const ctx = canvas.getContext('2d');
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  const spacing = 80;
-  const glowSize = 8;
-  const speed = 0.0015;
-  const cols = Math.ceil(canvas.width / spacing) + 1;
-  const rows = Math.ceil(canvas.height / spacing) + 1;
-  const points = [];
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      points.push({ ox: i * spacing, oy: j * spacing, x: 0, y: 0, offset: Math.random() * 1000 });
-    }
-  }
-
-  function animate(t) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const [r, g, b] = [0, 95, 163];  // tu #005fa3
-
-  ctx.shadowBlur   = glowSize;
-  ctx.shadowColor  = `rgba(${r},${g},${b}, 0.05)`;  // halo muy suave
-  ctx.fillStyle    = `rgba(${r},${g},${b}, 0.03)`;  // puntos casi invisibles
-  ctx.strokeStyle  = `rgba(${r},${g},${b}, 0.10)`;  // líneas muy tenues
-  ctx.lineWidth    = 1;
-
-  points.forEach(p => {
-    const time = t * speed + p.offset;
-    p.x = p.ox + Math.sin(time + p.oy * 0.005) * 30;
-    p.y = p.oy + Math.cos(time + p.ox * 0.005) * 30;
-  });
-
- 
-
-    ctx.beginPath();
-    for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        const idx = i * rows + j;
-        const p = points[idx];
-        if (i < cols - 1) {
-          const pr = points[(i + 1) * rows + j];
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(pr.x, pr.y);
-        }
-        if (j < rows - 1) {
-          const pb = points[i * rows + j + 1];
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(pb.x, pb.y);
-        }
-      }
-    }
-    ctx.stroke();
-    ctx.beginPath();
-    points.forEach(p => {
-      ctx.moveTo(p.x + 2, p.y);
-      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-    });
-    ctx.fill();
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-
-
-
-
-
-
-  // Estilo global para Chart.js (fuente + color de texto)
+  
+// Estilo global para Chart.js (fuente + color de texto)
   Chart.defaults.font.family =
     '-apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, sans-serif';
   Chart.defaults.font.weight = '500';
-  Chart.defaults.font.size = 12;
+  Chart.defaults.font.size = 11;
   Chart.defaults.color = '#333';
+  Chart.defaults.plugins.legend.labels.boxWidth = 12;
 
   
   const COLOR_AZUL      = '#007AFF';      // acento principal
@@ -116,59 +46,42 @@ window.addEventListener('DOMContentLoaded', () => {
         },
       ],
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: true,
-          position: 'top',
-          labels: {
-            boxWidth: 12,
-            boxHeight: 12,
-            color: '#333',
-          },
-        },
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          ticks: { color: '#555' },
-        },
-        y: {
-          grid: { color: '#ECECEC' },
-          ticks: { color: '#555', stepSize: 20 },
-        },
-      },
-    },
+    
   });
 
   // 2) Gráfica Doughnut: Distribución por Entrada (verde)
-  const pieCtx = document.getElementById('pieChart').getContext('2d');
-  new Chart(pieCtx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Entrada 1', 'Entrada 2'],
-      datasets: [
-        {
-          data: [70, 30],
-          backgroundColor: [COLOR_VERDE, 'rgba(52, 199, 89, 0.6)'],
-          hoverOffset: 10,
-          borderWidth: 0,
-        },
-      ],
-    },
-    options: {
-      cutout: '60%',
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { color: '#555', usePointStyle: true, pointStyle: 'circle' },
-        },
+const pieCtx = document.getElementById('pieChart').getContext('2d');
+
+new Chart(pieCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Entrada 1', 'Entrada 2'],
+    datasets: [{
+      data: [70, 30],
+      backgroundColor: ['#4cd964', '#a0e6a0'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '70%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          font: { size: 11 },
+          color: '#555'
+        }
       },
-    },
-  });
+      tooltip: {
+        backgroundColor: '#222',
+        bodyFont: { size: 12 },
+        cornerRadius: 6,
+        padding: 8
+      }
+    }
+  }
+});
 
   // 3) Gráfica de barras vertical: Camiones por Hora (naranja)
   const camionCtx = document.getElementById('camionesChart').getContext('2d');
@@ -207,40 +120,50 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // 4) Gráfica de barras horizontal: Personas por Entrada (rojo)
-  const personasEntradaCtx = document
-    .getElementById('personasEntradaChart')
-    .getContext('2d');
-  new Chart(personasEntradaCtx, {
-    type: 'bar',
-    data: {
-      labels: ['Entrada 1', 'Entrada 2'],
-      datasets: [
-        {
-          label: 'Personas detectadas',
-          data: [180, 76],
-          backgroundColor: [COLOR_ROJO, 'rgba(255, 59, 48, 0.6)'],
-          borderRadius: 6,
-        },
-      ],
+  const personasEntradaCtx = document.getElementById('personasEntradaChart').getContext('2d');
+
+new Chart(personasEntradaCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Entrada 1', 'Entrada 2'],
+    datasets: [{
+      label: 'Personas detectadas',
+      data: [180, 76],
+      backgroundColor: ['#ff3b30', 'rgba(255, 59, 48, 0.4)'],
+      borderRadius: 8,
+      barThickness: 20
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#333',
+        titleFont: { size: 12, weight: 'bold' },
+        bodyFont: { size: 11 },
+        padding: 8,
+        cornerRadius: 6
+      }
     },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      plugins: {
-        legend: { display: false },
+    scales: {
+      x: {
+        beginAtZero: true,
+        grid: { color: '#ececec' },
+        ticks: { color: '#555', stepSize: 50 }
       },
-      scales: {
-        x: {
-          grid: { color: '#ECECEC' },
-          ticks: { color: '#555', stepSize: 50 },
-        },
-        y: {
-          grid: { display: false },
-          ticks: { color: '#555' },
-        },
-      },
-    },
-  });
+      y: {
+        grid: { display: false },
+        ticks: {
+          color: '#555',
+          font: { size: 12 }
+        }
+      }
+    }
+  }
+});
 
   // 5) Gráfica de barras vertical: Tráfico semanal acumulado (morado)
   const weekCtx = document.getElementById('weekChart').getContext('2d');
@@ -291,12 +214,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 // 6) Inicializar mapa Leaflet
-const map = L.map('map').setView([20.6100, -103.3586], 16); // Tonalá
+const map = L.map('map').setView([20.5858, -103.3284], 16); // coordenadas aproximadas CUT Tonalá
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-L.marker([20.6100, -103.3586]).addTo(map)
-  .bindPopup('Centro Universitario de Tonalá')
-  .openPopup();
+// Puedes añadir marcadores personalizados aquí:
+L.marker([20.565889, -103.223694]).addTo(map).bindPopup('Entrada 1');
+L.marker([20.569167, -103.227806]).addTo(map).bindPopup('Entrada 2');
+map.setView([20.5675, -103.2257], 16);  // Ajusta el zoom (17 es ideal para campus)
+
+

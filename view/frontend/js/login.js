@@ -32,59 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ────────────────────
-  // 2) ANIMACIÓN OPTIMIZADA
-  // ────────────────────
- function animate(t) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const [r, g, b] = [0, 95, 163];  // tu #005fa3
-
-  ctx.shadowBlur   = glowSize;
-  ctx.shadowColor  = `rgba(${r},${g},${b}, 0.05)`;  
-  ctx.fillStyle    = `rgba(${r},${g},${b}, 0.03)`;  
-  ctx.strokeStyle  = `rgba(${r},${g},${b}, 0.10)`;  
-  ctx.lineWidth    = 1;
-
-  points.forEach(p => {
-    const time = t * speed + p.offset;
-    p.x = p.ox + Math.sin(time + p.oy * 0.005) * 30;
-    p.y = p.oy + Math.cos(time + p.ox * 0.005) * 30;
-  });
-
-    // 4) dibuja TODAS las líneas en un único path
-    ctx.beginPath();
-    for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        const idx = i * rows + j;
-        const p = points[idx];
-        if (i < cols - 1) {
-          const pr = points[(i + 1) * rows + j];
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(pr.x, pr.y);
-        }
-        if (j < rows - 1) {
-          const pb = points[i * rows + j + 1];
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(pb.x, pb.y);
-        }
-      }
-    }
-    ctx.stroke();  
-
-    // 5) dibuja TODOS los puntos en un único path
-    ctx.beginPath();
-    points.forEach(p => {
-      ctx.moveTo(p.x + 2, p.y);
-      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-    });
-    ctx.fill();   
-
-    // 6) siguiente frame
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-
   // ────────────────────────────
   // 3) EVENTOS DE LOGIN / REGISTRO
   // ────────────────────────────

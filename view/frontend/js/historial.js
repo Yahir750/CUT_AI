@@ -1,69 +1,6 @@
 // js/historial.js
 window.addEventListener('DOMContentLoaded', () => {
 
-const canvas = document.getElementById('mesh-bg');
-  const ctx = canvas.getContext('2d');
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  const spacing = 80;
-  const glowSize = 8;
-  const speed = 0.0015;
-  const cols = Math.ceil(canvas.width / spacing) + 1;
-  const rows = Math.ceil(canvas.height / spacing) + 1;
-  const points = [];
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      points.push({ ox: i * spacing, oy: j * spacing, x: 0, y: 0, offset: Math.random() * 1000 });
-    }
-  }
-  function animate(t) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const [r, g, b] = [0, 95, 163];  // tu #005fa3
-
-  ctx.shadowBlur   = glowSize;
-  ctx.shadowColor  = `rgba(${r},${g},${b}, 0.05)`;  
-  ctx.fillStyle    = `rgba(${r},${g},${b}, 0.03)`; 
-  ctx.strokeStyle  = `rgba(${r},${g},${b}, 0.10)`;  
-  ctx.lineWidth    = 1;
-
-  points.forEach(p => {
-    const time = t * speed + p.offset;
-    p.x = p.ox + Math.sin(time + p.oy * 0.005) * 30;
-    p.y = p.oy + Math.cos(time + p.ox * 0.005) * 30;
-  });
-    ctx.beginPath();
-    for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        const idx = i * rows + j;
-        const p = points[idx];
-        if (i < cols - 1) {
-          const pr = points[(i + 1) * rows + j];
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(pr.x, pr.y);
-        }
-        if (j < rows - 1) {
-          const pb = points[i * rows + j + 1];
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(pb.x, pb.y);
-        }
-      }
-    }
-    ctx.stroke();
-    ctx.beginPath();
-    points.forEach(p => {
-      ctx.moveTo(p.x + 2, p.y);
-      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-    });
-    ctx.fill();
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-
 
 
 
@@ -140,49 +77,72 @@ const canvas = document.getElementById('mesh-bg');
   const pieCtx       = document.getElementById('pieChart').getContext('2d');
   const camionCtx    = document.getElementById('camionesChart').getContext('2d');
   const personasCtx  = document.getElementById('personasEntradaChart').getContext('2d');
-  const weekCtx      = document.getElementById('weekChart').getContext('2d');
+ 
 
   // Crea instancias vacías
   const lineChart = new Chart(lineCtx, {
-    type: 'line',
-    data: {
-      labels: ['6:00','7:00','8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'],
-      datasets: [{
-        label: 'Personas detectadas',
-        data: [],
-        fill: true,
-        backgroundColor: null,
-        borderColor: COLORS.AZUL,
-        borderWidth: 2,
-        tension: 0.4,
-        pointRadius: 3,
-        pointBackgroundColor: COLORS.AZUL
-      }]
+  type: 'line',
+  data: {
+    labels: ['6:00','7:00','8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'],
+    datasets: [{
+      label: 'Personas detectadas',
+      data: [],
+      fill: true,
+      backgroundColor: null,
+      borderColor: COLORS.AZUL,
+      borderWidth: 2,
+      tension: 0.4,
+      pointRadius: 3,
+      pointBackgroundColor: COLORS.AZUL
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: { top: 8, bottom: 8 }
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 3000 },
-      scales: {
-        x: { grid: { display: false } },
-        y: { grid: { color: '#ECECEC' } }
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#333',
+        bodyFont: { size: 12 },
+        cornerRadius: 6
       }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#555' } },
+      y: { grid: { color: '#ECECEC' }, ticks: { color: '#555', stepSize: 20 } }
     }
-  });
+  }
+});
 
   const pieChart = new Chart(pieCtx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Entrada 1','Entrada 2'],
-      datasets: [{ data: [], backgroundColor: [COLORS.VERDE, 'rgba(52,199,89,0.6)'], hoverOffset: 10, borderWidth: 0 }]
-    },
-    options: {
-      cutout: '60%',
-      responsive: true,
-      animation: { duration: 3000 },
-      plugins: { legend: { position: 'bottom' } }
+  type: 'doughnut',
+  data: {
+    labels: ['Entrada 1','Entrada 2'],
+    datasets: [{
+      data: [],
+      backgroundColor: [COLORS.VERDE, 'rgba(52,199,89,0.6)'],
+      hoverOffset: 10,
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '65%',
+    animation: { duration: 2000 },
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          font: { size: 11 },
+          color: '#555'
+        }
+      }
     }
-  });
+  }
+});
 
   const camionesChart = new Chart(camionCtx, {
     type: 'bar',
@@ -200,41 +160,34 @@ const canvas = document.getElementById('mesh-bg');
       }
     }
   });
-
   const personasEntradaChart = new Chart(personasCtx, {
-    type: 'bar',
-    data: {
-      labels: ['Entrada 1','Entrada 2'],
-      datasets: [{ label: 'Personas detectadas', data: [], backgroundColor: [COLORS.ROJO, 'rgba(255,59,48,0.6)'], borderRadius: 6 }]
+  type: 'bar',
+  data: {
+    labels: ['Entrada 1','Entrada 2'],
+    datasets: [{
+      label: 'Personas detectadas',
+      data: [],
+      backgroundColor: [COLORS.ROJO, 'rgba(255,59,48,0.6)'],
+      borderRadius: 6,
+      barThickness: 20
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: { top: 8, bottom: 8 } },
+    plugins: {
+      legend: { display: false }
     },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      animation: { duration: 3000 },
-      scales: {
-        x: { grid: { color: '#ECECEC' } },
-        y: { grid: { display: false } }
-      }
+    scales: {
+      x: { grid: { color: '#ECECEC' }, ticks: { color: '#555' } },
+      y: { grid: { display: false }, ticks: { color: '#555' } }
     }
-  });
+  }
+});
 
-  const weekChart = new Chart(weekCtx, {
-    type: 'bar',
-    data: {
-      labels: ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'],
-      datasets: [{ label: 'Personas', data: [], backgroundColor: COLORS.MORADO, borderRadius: 6 }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 3000 },
-      scales: {
-        x: { grid: { display: false } },
-        y: { grid: { color: '#ECECEC' } }
-      }
-    }
-  });
-
+  
   // ————— 4. Función para actualizar TODAS las gráficas —————
   function updateCharts() {
     // Línea
@@ -258,8 +211,7 @@ const canvas = document.getElementById('mesh-bg');
     personasEntradaChart.update();
 
     // Semana
-    weekChart.data.datasets[0].data = Array(7).fill().map(() => randomInt(100, 300));
-    weekChart.update();
+    
   }
 
   // ————— 5. Eventos de cambio —————
