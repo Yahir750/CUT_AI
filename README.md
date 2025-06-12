@@ -1,8 +1,8 @@
-# Proyecto YOLO con Microservicios en Raspberry Pi
+# Implementacion de YOLO dentro de la universidad 
 
 ## Descripción
 
-Proyecto que utiliza arquitectura de microservicios con Flask, Docker, y MySQL para procesar videos con YOLO (detección de objetos), guardar datos y mostrarlos en un dashboard web con Grafana.
+Proyecto que utiliza arquitectura de microservicios con Flask, Docker, y MySQL para procesar el flujo de personas y trasporte con YOLO (detección de objetos), guardar datos y mostrarlos en un dashboard web con Grafana.
 
 ## Arquitectura
 
@@ -28,13 +28,11 @@ Proyecto que utiliza arquitectura de microservicios con Flask, Docker, y MySQL p
     ```bash
     docker-compose up -d --build
     ```
-3. Accede a:
-   - Frontend: `http://<ip_raspberry>:3001`
-   - Grafana: `http://<ip_raspberry>:3000`
+3. Continua...
 
 ## Variables de configuración
 
-Por ahora están en `docker-compose.yml`, puedes modificar los puertos y contraseñas en ese archivo.
+Por ahora están en `docker-compose.yml`,  modificar los puertos y contraseñas*
 
 ## Próximos pasos
 
