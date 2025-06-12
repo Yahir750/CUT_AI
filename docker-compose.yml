@@ -1,0 +1,65 @@
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "80:5000"
+    depends_on:
+      - auth-service
+      - user-service
+      - yolo-service
+      - data-collector
+
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "5001:5000"
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "5002:5000"
+
+  yolo-service:
+    build: ./yolo-service
+    ports:
+      - "5003:5000"
+    volumes:
+      - ./yolo-service/videos:/app/videos
+
+  data-collector:
+    build: ./data-collector
+    ports:
+      - "5004:5000"
+
+  view-frontend:
+    build: ./view/frontend
+    ports:
+      - "3001:80"
+
+  view-backend:
+    build: ./view/backend
+    ports:
+      - "5005:5000"
+
+
+  grafana:
+    image: grafana/grafana-oss
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+  mysql:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: detections
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+  grafana_data:
