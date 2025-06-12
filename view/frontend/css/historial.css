@@ -1,95 +1,110 @@
-/* quitamos el margin-top de .historial-container para que no suba por encima */
+/* ============================== */
+/* Estilos de Historial (CORREGIDO) */
+/* ============================== */
+
+/* Panel lateral izquierdo */
 .historial-container {
   flex: 0 0 320px;
   margin: 0;
   padding: 1.5rem;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* 1. Ahora el wrapper .content-body es el flex container */
+/* Contenedor principal */
 .content-body {
   display: flex;
-  align-items: stretch;   /* estira ambas columnas al mismo alto */
+  align-items: stretch;
   gap: 1.5rem;
   padding: 2rem 0;
+  flex-wrap: wrap;
 }
 
-/* 2. La grid sigue igual, pero sin margin-top */
+/* ============================== */
+/* Grid de gráficas */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-flow: row dense;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex: 1;
 }
 
-
-
-/* 3. Asegúrate de que las tarjetas tengan altura explícita */
-.card {
+.dashboard-grid section,
+.dashboard-grid .card {
   background: #fff;
   border-radius: 16px;
   padding: 1rem 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 220px;
+  min-width: 0;
+  overflow: hidden;
 }
 
-
-/* Convierte cada tarjeta en un flex-container vertical */
-.dashboard-grid .card {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Deja el título arriba y permite que el canvas crezca abajo */
 .dashboard-grid .card h2 {
   margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-align: center;
+  color: #222;
 }
-.dashboard-grid .card canvas {
+
+.dashboard-grid .card canvas,
+.card canvas {
   width: 100% !important;
   height: 220px !important;
   max-height: 240px;
-  margin: 0 auto;
+  min-height: 180px;
   display: block;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
+.card.dist,
+.card.cam,
+.card.personas {
+  min-height: 260px;
+}
 
-/* Tus min-heights actuales mantienen el tamaño base */
-.card.dist, .card.cam, .card.personas { min-height: 260px; }
-.card.flow, .card.week               { min-height: 190px; }
+.card.flow {
+  min-height: 220px;
+}
 
-/* Panel mejorado */
+/* ============================== */
+/* Panel lateral (Fecha y datos) */
 .historial-panel {
   background: hsla(0, 0%, 100%, 0.8);
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   max-width: 360px;
   display: grid;
   row-gap: 1.5rem;
 }
 
-/* Fecha */
 .fecha-wrapper label {
   font-weight: 600;
   margin-bottom: 0.5rem;
   display: block;
 }
+
 .input-icon {
   position: relative;
 }
+
 .input-icon i {
   position: absolute;
-  left: 12px; top: 50%;
+  left: 12px;
+  top: 50%;
   transform: translateY(-50%);
   color: #888;
   pointer-events: none;
 }
+
 .input-icon input[type="date"] {
   width: 80%;
   padding: 0.5rem 0.75rem 0.5rem 2.5rem;
@@ -99,11 +114,13 @@
   font-size: 0.9rem;
 }
 
-/* Datos */
+/* ============================== */
+/* Datos resumen */
 .datos-grid {
   display: grid;
-  row-gap: 5rem;
+  row-gap: 2rem;
 }
+
 .dato {
   display: flex;
   justify-content: space-between;
@@ -112,13 +129,38 @@
   background: #f4f6f8;
   border-radius: 8px;
 }
+
 .dato .label {
   font-weight: 500;
   color: #555;
 }
+
 .dato .value {
   font-weight: 600;
   color: #222;
 }
 
+/* ============================== */
+/* Responsivo */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .user-info {
+    align-self: flex-end;
+  }
+
+  header h1,
+  header p {
+    text-align: left;
+  }
+}

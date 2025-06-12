@@ -640,3 +640,13 @@ html, body {
   margin: 0 auto;
   box-sizing: border-box;
 }
+.card.grafana {
+  min-height: 260px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
