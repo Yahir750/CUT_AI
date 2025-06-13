@@ -84,39 +84,40 @@
 
 
     <!-- KPIs -->
-    <div class="kpi-container">
-      <div class="kpi-card">
-        <i class="fas fa-users"></i>
-        <div>
-          <div class="kpi-label">Personas detectadas hoy</div>
-          <strong>256</strong>
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <i class="fas fa-bus"></i>
-        <div>
-          <div class="kpi-label">Camiones registrados</div>
-          <strong>12</strong>
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <i class="fas fa-clock"></i>
-        <div>
-          <div class="kpi-label">Hora pico</div>
-          <strong>7:30 AM</strong>
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <i class="fas fa-door-open"></i>
-        <div>
-          <div class="kpi-label">Entrada más usada</div>
-          <strong>Entrada 1</strong>
-        </div>
-      </div>
+<div class="kpi-container">
+  <div class="kpi-card">
+    <i class="fas fa-users"></i>
+    <div>
+      <div class="kpi-label">Personas detectadas hoy</div>
+      <strong id="kpi-personas">...</strong>
     </div>
+  </div>
+
+  <div class="kpi-card">
+    <i class="fas fa-bus"></i>
+    <div>
+      <div class="kpi-label">Camiones registrados</div>
+      <strong id="kpi-camiones">...</strong>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <i class="fas fa-clock"></i>
+    <div>
+      <div class="kpi-label">Hora pico</div>
+      <strong id="kpi-hora">...</strong>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <i class="fas fa-door-open"></i>
+    <div>
+      <div class="kpi-label">Entrada más usada</div>
+      <strong id="kpi-entrada">...</strong>
+    </div>
+  </div>
+</div>
+
 
     <!-- ===== Grid de gráficas estilo "collage" ===== -->
     <div class="dashboard-grid">
@@ -155,12 +156,8 @@
 
 </div>
 
-<div class="card grafana">
-  <h2>Panel de Grafana</h2>
-  <iframe
-    src="http://localhost:3001/d/abc123/mi-dashboard?orgId=1&refresh=30s"
-    width="100%" height="240" style="border: none; border-radius: 12px;">
-  </iframe>
+
+  
 </div>
 
  <!-- Sección con Video + Explicación de IA -->

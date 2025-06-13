@@ -53,10 +53,10 @@ services:
     image: mysql:8
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: detections
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cut_movilidad_ia
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
