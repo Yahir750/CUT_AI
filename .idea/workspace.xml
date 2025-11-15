@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="258a7cfb-254b-4157-a7d4-54c780111694" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Lentes_IA.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dashboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/dashboards/dashboard-analytics.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/dashboards/dashboard-analytics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/dashboards/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/dashboards/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/partials/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/partials/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/partials/customizer.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/partials/customizer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/partials/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/partials/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/partials/topbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/partials/topbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yolo_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yolo_control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/velzon_integration_notes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolo-service/yolo_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolo-service/yolo_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolo-service/zones/entrada1_zonas.json" beforeDir="false" afterPath="$PROJECT_DIR$/yolo-service/zones/entrada1_zonas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolo-service/zones/entrada2_zonas.json" beforeDir="false" afterPath="$PROJECT_DIR$/yolo-service/zones/entrada2_zonas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolo-service/zones/entrada3_zonas.json" beforeDir="false" afterPath="$PROJECT_DIR$/yolo-service/zones/entrada3_zonas.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2yz2jEmbCFNOHmtVtziDo4O7R0r" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Docker.auth-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.backend/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.data-collector/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.auth-service: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.data-collector: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.grafana: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.user-service: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.view-backend: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.yolo-service: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.user-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.yolo-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Python.DatosTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.JWT.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Lineas.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.entrada1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.f.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testmysql.executor&quot;: &quot;Run&quot;,
+    &quot;Python.yolo.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;new-version&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yahir/Proyecto/CUT_AI&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\User\Escritorio\CUT_AI\view\backend\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.docker-compose.yml.mysql: Compose Deployment">
+    <configuration name="DatosTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CUT_AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yolo-service" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolo-service/DatosTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="entrada1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CUT_AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yolo-service" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolo-service/entrada1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testmysql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CUT_AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yolo-service" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolo-service/testmysql.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="yolo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CUT_AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yolo-service" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolo-service/yolo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.mysql: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mysql" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yml.mysql: Compose Deployment" />
+        <item itemvalue="Python.testmysql" />
+        <item itemvalue="Python.yolo" />
+        <item itemvalue="Python.entrada1" />
+        <item itemvalue="Python.DatosTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.26830.99" />
+        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="258a7cfb-254b-4157-a7d4-54c780111694" name="Changes" comment="" />
+      <created>1750823214077</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750823214077</updated>
+      <workItem from="1750823215252" duration="11706000" />
+      <workItem from="1750879533571" duration="6110000" />
+      <workItem from="1750905843659" duration="13509000" />
+      <workItem from="1750977848707" duration="5258000" />
+      <workItem from="1751000967642" duration="298000" />
+      <workItem from="1751476164958" duration="2233000" />
+      <workItem from="1751481992895" duration="1297000" />
+      <workItem from="1751555394670" duration="75000" />
+      <workItem from="1751943542614" duration="12588000" />
+      <workItem from="1752004234297" duration="17685000" />
+      <workItem from="1752024304692" duration="2558000" />
+      <workItem from="1752027484525" duration="842000" />
+      <workItem from="1752028455216" duration="1668000" />
+      <workItem from="1752030622130" duration="747000" />
+      <workItem from="1752031505168" duration="12710000" />
+      <workItem from="1752076490754" duration="3195000" />
+      <workItem from="1760059641932" duration="99000" />
+      <workItem from="1760059768798" duration="539000" />
+      <workItem from="1760060369999" duration="841000" />
+      <workItem from="1760062654782" duration="21000" />
+      <workItem from="1760062886709" duration="773000" />
+      <workItem from="1760063707426" duration="627000" />
+      <workItem from="1760064622818" duration="742000" />
+      <workItem from="1760232567669" duration="8917000" />
+      <workItem from="1761519058679" duration="138000" />
+      <workItem from="1762459712445" duration="31000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CUT_AI$entrada1.coverage" NAME="entrada1 Coverage Results" MODIFIED="1752027006403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo-service" />
+    <SUITE FILE_PATH="coverage/CUT_AI$DatosTest.coverage" NAME="DatosTest Coverage Results" MODIFIED="1752018136282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo-service" />
+    <SUITE FILE_PATH="coverage/CUT_AI$app.coverage" NAME="app Coverage Results" MODIFIED="1750980379860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view/backend" />
+    <SUITE FILE_PATH="coverage/CUT_AI$testmysql.coverage" NAME="testmysql Coverage Results" MODIFIED="1752042472281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo-service" />
+    <SUITE FILE_PATH="coverage/CUT_AI$Lineas.coverage" NAME="Lineas Coverage Results" MODIFIED="1751483561145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo-service" />
+    <SUITE FILE_PATH="coverage/CUT_AI$yolo.coverage" NAME="yolo Coverage Results" MODIFIED="1752076822163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo-service" />
+  </component>
+</project>
